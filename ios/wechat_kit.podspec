@@ -12,12 +12,16 @@ A new flutter plugin project.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
-  s.public_header_files = 'Classes/**/*.h'
-  s.dependency 'Flutter'
-  # 微信
+  s.source_files = 'Classes/**/*', 'Libraries/**/*.h'
+  s.public_header_files = 'Classes/**/*.h', 'Libraries/**/*.h'
+  s.vendored_libraries = 'Libraries/**/*.a'
+  s.frameworks = 'CoreGraphics', 'Security', 'WebKit'
+#  s.libraries = 'z', 'c++'
+  s.pod_target_xcconfig = {
+      'OTHER_LDFLAGS' => '$(inherited) -ObjC -all_load'
+  }
   s.static_framework = true
-  s.dependency 'WechatOpenSDK', '~> 1.8.6'
+  s.dependency 'Flutter'
 
   s.ios.deployment_target = '8.0'
 end

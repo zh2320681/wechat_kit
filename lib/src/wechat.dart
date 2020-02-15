@@ -782,6 +782,7 @@ class Wechat {
     @required String timeStamp,
     @required String sign,
   }) {
+    assert(Platform.isAndroid);
     assert(appId != null && appId.isNotEmpty);
     assert(partnerId != null && partnerId.isNotEmpty);
     assert(prepayId != null && prepayId.isNotEmpty);
